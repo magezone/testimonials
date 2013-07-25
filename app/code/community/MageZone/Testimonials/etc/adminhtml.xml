@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @copyright	Copyright (c) 2013 MageZone (http://www.magezone.com). All rights reserved.
+ * @license		http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+		
+<config>
+	<menu>
+		<magezone>
+			<title>MageZone</title>
+			<sort_order>71</sort_order>
+			<children>
+				<testimonials module="testimonials">
+					<title>Testimonials</title>
+					<sort_order>71</sort_order>
+					<children>
+						<testimonial module="testimonials">
+							<title>Manage Testimonials</title>
+							<sort_order>0</sort_order>
+							<action>adminhtml/testimonials_testimonial</action>
+						</testimonial>
+						<testimonials_config module="testimonials">
+							<title>Configuration</title>
+							<sort_order>999</sort_order>
+							<action>adminhtml/system_config/edit/section/testimonials</action>
+						</testimonials_config>
+					</children>
+				</testimonials>
+			</children>
+		</magezone>
+	</menu>
+
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<MageZone_Testimonials>
+						<title>Testimonials Module</title>
+						<sort_order>10</sort_order>
+					</MageZone_Testimonials>
+					<system>
+						<children>
+							<config>
+								<children>
+									<testimonials translate="title">
+										<title>Testimonials</title>
+										<sort_order>50</sort_order>
+									</testimonials>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @copyright	Copyright (c) 2013 MageZone (http://www.magezone.com). All rights reserved.
+ * @license		http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+
+<config>
+	<modules>
+		<MageZone_Testimonials>
+			<version>1.0.0</version>
+		</MageZone_Testimonials>
+	</modules>
+
+	<frontend>
+		<routers>
+			<testimonials>
+				<use>standard</use>
+				<args>
+					<module>MageZone_Testimonials</module>
+					<frontName>testimonials</frontName>
+				</args>
+			</testimonials>
+		</routers>
+
+		<translate>
+			<modules>
+				<MageZone_Testimonials>
+					<files>
+						<default>MageZone_Testimonials.csv</default>
+					</files>
+				</MageZone_Testimonials>
+			</modules>
+		</translate>
+
+		<layout>
+			<updates>
+				<testimonials>
+					<file>testimonials.xml</file>
+				</testimonials>
+			</updates>
+		</layout>
+	</frontend>
+
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+                    <modules>
+                        <testimonials>MageZone_Testimonials_Adminhtml</testimonials>
+                    </modules>
+                </args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+	<stores>
+        <admin>
+            <design>
+                <theme>
+                    <default>magezone</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<testimonials>
+					<file>testimonials.xml</file>
+				</testimonials>
+			</updates>
+		</layout>
+
+		<translate>
+			<modules>
+				<MageZone_Testimonials>
+					<files>
+						<default>MageZone_Testimonials.csv</default>
+					</files>
+				</MageZone_Testimonials>
+			</modules>
+		</translate>
+	</adminhtml>
+	<global>
+		<models>
+			<testimonials>
+				<class>MageZone_Testimonials_Model</class>
+				<resourceModel>testimonials_mysql4</resourceModel>
+			</testimonials>
+			<testimonials_mysql4>
+				<class>MageZone_Testimonials_Model_Mysql4</class>
+				<entities>
+					<testimonial>
+						<table>magezone_testimonials</table>
+					</testimonial>
+				</entities>
+			</testimonials_mysql4>
+		</models>
+
+		<resources>
+			<testimonials_setup>
+				<setup>
+					<module>MageZone_Testimonials</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</testimonials_setup>
+
+			<testimonials_write>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</testimonials_write>
+
+			<testimonials_read>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</testimonials_read>
+		</resources>
+		<blocks>
+			<testimonials>
+				<class>MageZone_Testimonials_Block</class>
+			</testimonials>
+		</blocks>
+
+		<helpers>
+			<testimonials>
+				<class>MageZone_Testimonials_Helper</class>
+			</testimonials>
+		</helpers>
+	</global>
+
+	<default>
+		<testimonials>
+			<general>
+				<enable>1</enable>
+			</general>
+		</testimonials>
+	</default>
+</config>
